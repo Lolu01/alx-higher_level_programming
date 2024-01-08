@@ -1,0 +1,19 @@
+checking for module docstring:
+	>>> m = __import__("1-my_list").__doc__
+	>>> len(m) > 1
+	True
+
+checking for class docstring:
+	>>> c = __import__("1-my_list").MyList.__doc__
+	>>> len(c) > 1
+	True
+
+checking for print_sorted method docstring:
+	>>> mod = __import__("1-my_list").MyList.print_sorted.__doc__
+	>>> len(mod) > 1
+	True
+
+checking sorted method:
+	>>> test1 = __import__('1-my_list').MyList([4,2,3,1])
+	>>> test1.print_sorted()
+	[1, 2, 3, 4]

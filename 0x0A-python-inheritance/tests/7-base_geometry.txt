@@ -1,0 +1,39 @@
+
+checking for module docstring:
+	>>> m = __import__("7-base_geometry").__doc__
+	>>> len(m) > 1
+	True
+
+checking for class docstring:
+	>>> c = __import__("7-base_geometry").BaseGeometry.__doc__
+	>>> len(c) > 1
+	True
+
+checking for area method docstring:
+	>>> area_mod = __import__("7-base_geometry").BaseGeometry.area.__doc__
+	>>> len(area_mod) > 1
+	True
+
+checking integer_validator for method docstring:
+	>>> int_valid_mod = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+	>>> len(int_valid_mod) > 1
+	True
+
+checking for negative value:
+	>>> g = __import__("7-base_geometry").BaseGeometry()
+	>>> g.integer_validator("distance", -1)
+	Traceback (most recent call last):
+	...
+	ValueError: distance must be greater than 0
+
+checking for invalid data type:
+	>>> g.integer_validator("name", "john")
+	Traceback (most recent call last):
+	...
+	TypeError: name must be an integer
+
+checking for area exception:
+	>>> g.area()
+	Traceback (most recent call last):
+	...
+	Exception: area() is not implemented
